@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./ValidationSample.css";
 
 class ValidationSample extends Component {
+    
   state = {
       password : '',
       checked : false,
@@ -20,6 +21,7 @@ class ValidationSample extends Component {
           checked : true,
           vali : this.state.password === '1111'
       });
+      this.input.focus();
   };
 
   render () {
@@ -30,6 +32,7 @@ class ValidationSample extends Component {
           value={this.state.password}
           onChange={this.handleInput}
           className={this.state.checked ? (this.state.vali ? 'success' : 'failure') : ''}
+          ref={(ref) => this.input=ref}
           />
           <button
           onClick={this.handleClick}
